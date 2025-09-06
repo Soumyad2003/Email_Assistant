@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { Mail, RefreshCw, Send, Save, Zap, CheckCircle, Upload, Trash2, FileText, Brain, MessageSquare } from 'lucide-react';
+import { Mail, RefreshCw, Send, Save, Zap, CheckCircle, Upload, Trash2, FileText, Brain } from 'lucide-react';
 
 interface Email {
   id: number;
@@ -47,15 +47,16 @@ const Dashboard: React.FC = () => {
   // Replace the API_BASE constant with:
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
 
-  useEffect(() => {
+
+useEffect(() => {
     loadEmails();
     loadAnalytics();
     const interval = setInterval(() => {
-      loadEmails();
-      loadAnalytics();
+        loadEmails();
+        loadAnalytics();
     }, 30000);
     return () => clearInterval(interval);
-  }, []);
+}, [loadEmails, loadAnalytics]);
 
   const loadEmails = async () => {
     try {

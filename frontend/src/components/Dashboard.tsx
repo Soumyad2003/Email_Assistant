@@ -44,7 +44,8 @@ const Dashboard: React.FC = () => {
   const [generatingResponse, setGeneratingResponse] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-  const API_BASE = 'http://localhost:8000/api';
+  // Replace the API_BASE constant with:
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
 
   useEffect(() => {
     loadEmails();

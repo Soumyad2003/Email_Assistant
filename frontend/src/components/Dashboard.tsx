@@ -45,18 +45,17 @@ const Dashboard: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   // Replace the API_BASE constant with:
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+const API_BASE = 'https://email-assistant-api.onrender.com';
 
-
-useEffect(() => {
+  useEffect(() => {
     loadEmails();
     loadAnalytics();
     const interval = setInterval(() => {
-        loadEmails();
-        loadAnalytics();
+      loadEmails();
+      loadAnalytics();
     }, 30000);
     return () => clearInterval(interval);
-}, [loadEmails, loadAnalytics]);
+  }, []);
 
   const loadEmails = async () => {
     try {

@@ -34,13 +34,14 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://your-frontend-domain.vercel.app",  # Add your frontend URL
-        "*"  # Remove this in production
+        "https://email-assistant-api.onrender.com",  # Add your actual Vercel URL
+        "https://*.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 # Initialize Gemini client
